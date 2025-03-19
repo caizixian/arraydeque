@@ -601,7 +601,7 @@ impl<T, const CAP: usize, B: Behavior> ArrayDeque<T, CAP, B> {
     }
 
     #[inline]
-    unsafe fn push_front_unchecked(&mut self, element: T) {
+    pub unsafe fn push_front_unchecked(&mut self, element: T) {
         debug_assert!(!self.is_full());
 
         self.set_tail_backward();
@@ -610,7 +610,7 @@ impl<T, const CAP: usize, B: Behavior> ArrayDeque<T, CAP, B> {
     }
 
     #[inline]
-    unsafe fn push_back_unchecked(&mut self, element: T) {
+    pub unsafe fn push_back_unchecked(&mut self, element: T) {
         debug_assert!(!self.is_full());
 
         let head = self.head();
